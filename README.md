@@ -2,9 +2,9 @@
 
 ![](https://github.com/coffeeba/coffee-os/workflows/C%20CI/badge.svg)
 
-CoffeeOS is a hobbyist and educational operating system written in C (and some small parts are written in assembly).
+CoffeeOS is a fun and cool operating system I made by myself. I often work on my OS when I have time or when I get bored.
 
-## Features
+## CoffeeOS Features
 
 - x86_64 OS
 - Grub2 as boot loader
@@ -44,21 +44,30 @@ CoffeeOS is a hobbyist and educational operating system written in C (and some s
 - BMP file support :(
 
 
-## Build
+## Running CoffeeOS Guide
 
-You can build COFFEEOS using Vagrant Dev Environment or on your local machine.
+#### Build
+You can build COFFEEOS using makefile.
 
-### Build using Vagrant
+#### Build using Vagrant
 
-Vagrantfile already contains all dependencies needed to build COFFEEOS. To use Vagrant as development environment 
-following dependencies must be installed on your host machine:
+Vagrantfile already contains all dependencies needed to build and configure COFFEEOS. 
+(Huge warning - do NOT delete any of the makefiles of vagrant files or the build will NOT WORK!)
+
+To use Vagrant as development environment 
+
+#### Required Dependencies for CoffeeOS
 
 * VirtualBox
+* gcc cross compiler
+* nasm
+* mtools
+* Vagrant
+* Make
 * Vagrant
 * QEMU (for MacOS use brew: `brew install qemu`)
 
-Run following:
-
+Run these commands:
 ```
 vagrant up
 vagrant ssh
@@ -129,11 +138,11 @@ qemu-img convert -O vdi images/disk.img images/disk.vdi
 
 Mount disk.vdi (master) and coffeeos-x86_64.iso (slave). Start machine.
 
+---
 ## Creating COFFEEOS apps
 
-Best way to create new app is just to copy `simple_win` from `apps` folder. Example for GUI app:
-
-
+Best way to create new app is just to copy `simple_win` from `apps` folder. 
+Example app below (GUI app):
 ```c
 // See ./apps/simple_win
 #include <coffeeos.h>
@@ -180,7 +189,42 @@ int main() {
 }
 ```
 
-## Kernel TODO
+# Goals
+## Future Goals
+
+| Goal                                    | Description                                    |
+|-----------------------------------------|------------------------------------------------|
+| Desktop - discover apps from `/apps` folder |                                                |
+| exit()                                  |                                                |
+| More components (button, text, radio, checkbox, ...) |                                          |
+| Calculator                              |                                                |
+| Sudoku                                  |                                                |
+
+## Kernel Goals
+
+| Goal                                    | Description                                    |
+|-----------------------------------------|------------------------------------------------|
+| ATA Write Sector                        |                                                |
+| FAT 12/16/32 Write                      |                                                |
+| Time: kernel and syscall                |                                                |
+| Kill process (partially done: extend to remove win) |                                        |
+| Load ELF larger than 2MB                |                                                |
+| Optimize graphics functions (asm or 64bit) |                                             |
+| Child threads in user space              |                                                |
+| Scalable fonts (https://gitlab.com/bztsrc/scalable-font) |                                   |
+| Full screen Exclusive mode (for game loops) |                                          |
+| Transparent pixels                      |                                                |
+
+
+______
+## Future Goals
+- Desktop - discover apps from `/apps` folder
+- exit()
+- More components (button, text, radio, checkbox, ...)
+- Calculator
+- Sudoku
+____________
+## Kernel Goals
 - ATA Write Sector
 - FAT 12/16/32 Write
 - Time : kernel and syscall
@@ -191,36 +235,10 @@ int main() {
 - Scalable fonts (https://gitlab.com/bztsrc/scalable-font)
 - Full screen Exclusive mode (for game loops)
 - Transaprent pixels
+____
 
-## Apps TODO
-- Desktop - discover apps from `/apps` folder
-- exit()
-- More components (button, text, radio, checkbox, ...)
-- Calculator
-- Sudoku
+## About This Project ✨
 
-## Images
+This was one of the coolest projects I had made so far. I learned so much about C, C++, assembly, and computing.
 
-![Screenshot](https://github.com/coffeeba/coffee-os/blob/master/assets/screen_1.png?raw=true)
-
-
-## Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/SamirHodzic"><img src="https://avatars0.githubusercontent.com/u/10077663?v=4" width="100px;" alt=""/><br /><sub><b>SamirH</b></sub></a><br /><a href="https://github.com/coffeeba/coffee-os/commits?author=SamirHodzic" title="Code">💻</a></td>
-    <td align="center"><a href="http://www.ensarsarajcic.com"><img src="https://avatars2.githubusercontent.com/u/2764831?v=4" width="100px;" alt=""/><br /><sub><b>Ensar Sarajčić</b></sub></a><br /><a href="https://github.com/coffeeba/coffee-os/commits?author=esensar" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/ahamza1"><img src="https://avatars0.githubusercontent.com/u/17404743?v=4" width="100px;" alt=""/><br /><sub><b>Almir Hamza</b></sub></a><br /><a href="https://github.com/coffeeba/coffee-os/commits?author=ahamza1" title="Code">💻</a></td>
-  </tr>
-</table>
-
-<!-- markdownlint-enable -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+OS made by Coffee!
