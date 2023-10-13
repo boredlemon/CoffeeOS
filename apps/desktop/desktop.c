@@ -26,7 +26,7 @@ void start_app(char *filename) {
 
 int main() {
 	bmp_from_file("/apps/desktop/appicon.bmp", &default_app_icon);
-	bmp_from_file("/assets/Coffee.bmp", &wallpaper);
+	bmp_from_file("/assets/coffeeos.bmp", &wallpaper);
 	
 	window = window_create(0, 0, 1024, 768, "Applications", MSG_USER_WIN, WINDOW_ATTR_BOTTOM | WINDOW_ATTR_NO_DRAG, WINDOW_FRAME_NONE);
 	bmp_blit(WINDOW_EXT(window)->context, &wallpaper, 0, 0);
