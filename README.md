@@ -46,6 +46,11 @@ CoffeeOS is a fun and cool operating system I made by myself. I often work on my
 
 ## Running CoffeeOS Guide
 
+###### If you are lazy then use the following commands so you dont have to do much work
+./coffee.sh install
+./coffee.sh build
+./coffee.sh run
+
 #### Build
 You can build COFFEEOS using makefile.
 
@@ -65,7 +70,17 @@ To use Vagrant as development environment
 * Vagrant
 * Make
 * Vagrant
+* Cmake
+* Make
+* x86_64-elf
 * QEMU (for MacOS use brew: `brew install qemu`)
+
+```bash
+brew install nasm qemu cmake mtools x86_64-elf-gcc
+
+# uninstall
+brew list | xargs brew uninstall
+```
 
 Run these commands:
 ```
@@ -236,6 +251,7 @@ ____________
 - Full screen Exclusive mode (for game loops)
 - Transaprent pixels
 ____
+
 
 ## About This Project ✨
 
