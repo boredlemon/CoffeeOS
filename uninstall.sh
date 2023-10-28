@@ -17,10 +17,12 @@ echo "uninstalling and cleaning up!"
         ;;
 
 #clear up cached data and free up space from HomeBrew
-"nuke")
-echo "nuclear bombed mode enabled"
+"hardclean")
+echo "hard cleaning..."
      rm -rf images/disk
      brew list | xargs brew uninstall
+     brew remove --force --ignore-dependencies $(brew list)
+     brew cleanup -s
      brew cleanup
         ;;
     *)

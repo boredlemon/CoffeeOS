@@ -1,6 +1,9 @@
 #!/bin/bash
 
 case "$1" in
+    "installbrew")
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        ;;
     "install")
         brew install nasm qemu cmake mtools x86_64-elf-gcc
         ;;
